@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-materialize';
 import Category from '../category/category';
-import All from '../all/all';
+import Home from '../home/home';
 
 class Body extends Component {
   constructor(prop) {
     super(prop);
-    
+    this.handleCategoryData = this.handleCategoryData.bind(this);
+
+    this.state = {
+      productData: []
+    }
+  }
+
+  handleCategoryData(data) {
+    console.log('recibido por el padre')
+    this.setState({ productData: data });
   }
 
   render() {
     return (
     <Row>
       <Col s={2} m={2} className='grid-example'>
-        <Category/>
+        <Category onUpdateCategoryData={this.handleCategoryData}/>
       </Col>
       <Col s={10} m={10} className='grid-example'>
-        
+        <Home data={this.state.productData}/>
       </Col>
-      
     </Row>
     )
   }

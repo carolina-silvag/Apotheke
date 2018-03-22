@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-let url = `https://www.googleapis.com/books/v1/volumes?q=`;
+import { Col, Row } from 'react-materialize';
 
 class MostView extends Component {
   constructor(props) {
@@ -8,8 +7,16 @@ class MostView extends Component {
     
   }
 
+  renderProduct(data) {
+    /*llamar a mi data*/
+    console.log('estoy mostrando todo')
+  }
+
   render() {
-    return 
+    const { data } = this.props
+    return  <Row>
+              {this.renderProduct(data)}
+            </Row>
   }
 }
 

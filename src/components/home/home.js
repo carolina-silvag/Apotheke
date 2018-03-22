@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Header from '../header/header';
+import Search from '../search/search';
+import MostView from '../mostView/mostView';
 
 class Home extends Component {
   constructor(props) {
@@ -6,7 +9,14 @@ class Home extends Component {
   }
 
   render() {
-    return
+    const { data } = this.props
+    return (
+      <div>
+        <Search/>
+        <MostView data = { data }/>
+      </div>
+     )
+
     }
   }
 
