@@ -7,7 +7,10 @@ class Search extends Component {
     super(props);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    
+    this.state = {
+      text: '',
+      searchData: []
+    };
   }
    componentWillMount() {
     this.randomize();
@@ -42,7 +45,7 @@ class Search extends Component {
     }
   }
 
-  handleSearch() {
+  handleSearch(event) {
     event.preventDefault();
     if (!this.state.text.length) {
       return;
@@ -55,9 +58,8 @@ class Search extends Component {
     }));
     this.randomize();
   }
-  }
 
-  handleChange() {
+  handleChange(event) {
     this.setState({ text: event.target.value });
   }
 
